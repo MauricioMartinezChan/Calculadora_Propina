@@ -1,17 +1,32 @@
+// App.js
 import React, { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { Text, View, TextInput, TouchableOpacity } from 'react-native';
+import { Text, View, TextInput, TouchableOpacity, Button } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { styles } from './styles';
 
+const Tab = createBottomTabNavigator();
+
 export default function App() {
+  return (
+    <NavigationContainer>
+      <Tab.Navigator>
+        <Tab.Screen name="Calculadora" component={TipCalculatorScreen} />
+        <Tab.Screen name="Pagar" component={PayerScreen} />
+      </Tab.Navigator>
+    </NavigationContainer>
+  );
+}
+
+function TipCalculatorScreen() {
   const [billAmount, setBillAmount] = useState('');
   const [numberOfPeople, setNumberOfPeople] = useState('');
-  const [tipPercentage, setTipPercentage] = useState(15);
   const [tipAmount, setTipAmount] = useState(0);
   const [totalAmount, setTotalAmount] = useState(0);
   const [amountPerPerson, setAmountPerPerson] = useState(0);
 
-  const calculateTip = () => {
+  const calculateTip = (tipPercentage) => {
     const bill = parseFloat(billAmount);
     const people = parseInt(numberOfPeople);
 
@@ -20,7 +35,7 @@ export default function App() {
       return;
     }
 
-    const tipPercent = tipPercentage / 100;
+    const tipPercent = parseFloat(tipPercentage) / 100;
     const tip = bill * tipPercent;
     const total = bill + tip;
     const perPerson = total / people;
@@ -28,6 +43,14 @@ export default function App() {
     setTipAmount(tip);
     setTotalAmount(total);
     setAmountPerPerson(perPerson);
+  };
+
+  const clearData = () => {
+    setBillAmount('');
+    setNumberOfPeople('');
+    setTipAmount(0);
+    setTotalAmount(0);
+    setAmountPerPerson(0);
   };
 
   return (
@@ -56,19 +79,22 @@ export default function App() {
         />
       </View>
 
-      <View style={styles.inputContainer}>
-        <Text>Porcentaje de propina:</Text>
-        <TextInput
-          style={styles.input}
-          keyboardType="numeric"
-          placeholder="Ingrese el porcentaje"
-          value={tipPercentage.toString()}
-          onChangeText={(text) => setTipPercentage(parseInt(text) || 0)}
-        />
+      <View style={styles.buttonContainer}>
+        <TouchableOpacity style={styles.button} onPress={() => calculateTip('10')}>
+          <Text style={styles.buttonText}>10%</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity style={styles.button} onPress={() => calculateTip('15')}>
+          <Text style={styles.buttonText}>15%</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity style={styles.button} onPress={() => calculateTip('20')}>
+          <Text style={styles.buttonText}>20%</Text>
+        </TouchableOpacity>
       </View>
 
-      <TouchableOpacity style={styles.button} onPress={calculateTip}>
-        <Text style={styles.buttonText}>Calcular Propina</Text>
+      <TouchableOpacity style={styles.button} onPress={clearData}>
+        <Text style={styles.buttonText}>Limpiar Datos</Text>
       </TouchableOpacity>
 
       <View style={styles.resultContainer}>
@@ -79,6 +105,16 @@ export default function App() {
       </View>
 
       <StatusBar style="auto" />
+    </View>
+  );
+}
+
+function PayerScreen() {
+  // Aquí puedes implementar la lógica para seleccionar a cuántas personas les quieres pagar
+  return (
+    <View style={styles.container}>
+      <Text style={styles.header}>Seleccionar Pago</Text>
+      {/* Agrega la lógica para seleccionar a cuántas personas les quieres pagar */}
     </View>
   );
 }
