@@ -1,56 +1,57 @@
-// styles.js
+// Martinez Chan Mauricio
 import { StyleSheet } from 'react-native';
 
-export const styles = StyleSheet.create({
-  container: {
+export const estilos = StyleSheet.create({
+  contenedor: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
     padding: 20,
-    backgroundColor: '#f4f4f4',
+    backgroundColor: '#EAF3FF', 
   },
-  header: {
-    fontSize: 24,
+  encabezado: {
+    fontSize: 28,
     fontWeight: 'bold',
     marginBottom: 20,
-    color: '#333',
+    color: '#333', 
   },
-  inputContainer: {
+  contenedorEntrada: {
     marginBottom: 20,
     width: '100%',
   },
-  input: {
+  entrada: {
     height: 40,
-    borderColor: '#ccc',
+    borderColor: '#B0B0B0', 
     borderWidth: 1,
     marginBottom: 10,
     padding: 10,
-    borderRadius: 5,
-    backgroundColor: '#fff',
+    borderRadius: 8, 
+    backgroundColor: '#FFFFFF', 
   },
-  buttonContainer: {
+  contenedorBoton: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    justifyContent: 'space-around', 
     marginBottom: 20,
   },
-  button: {
-    backgroundColor: '#4285f4',
+  boton: {
+    backgroundColor: '#FF5722', 
     padding: 15,
-    borderRadius: 5,
-    width: '30%',
+    borderRadius: 8,
+    width: '28%', 
     alignItems: 'center',
   },
-  buttonText: {
+  textoBoton: {
     color: '#fff',
     textAlign: 'center',
+    fontSize: 16,
   },
-  resultContainer: {
+  contenedorResultado: {
     marginTop: 20,
     width: '100%',
   },
-  resultText: {
-    fontSize: 16,
+  textoResultado: {
+    fontSize: 18,
     marginBottom: 10,
-    color: '#333',
+    color: '#333', 
   },
 });
