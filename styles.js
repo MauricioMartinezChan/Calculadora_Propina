@@ -7,13 +7,13 @@ export const estilos = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     padding: 20,
-    backgroundColor: '#EAF3FF', 
+    backgroundColor: '#EAF3FF',
   },
   encabezado: {
     fontSize: 28,
     fontWeight: 'bold',
     marginBottom: 20,
-    color: '#333', 
+    color: '#333',
   },
   contenedorEntrada: {
     marginBottom: 20,
@@ -21,23 +21,23 @@ export const estilos = StyleSheet.create({
   },
   entrada: {
     height: 40,
-    borderColor: '#B0B0B0', 
+    borderColor: '#B0B0B0',
     borderWidth: 1,
     marginBottom: 10,
     padding: 10,
-    borderRadius: 8, 
-    backgroundColor: '#FFFFFF', 
+    borderRadius: 8,
+    backgroundColor: '#FFFFFF',
   },
   contenedorBoton: {
     flexDirection: 'row',
-    justifyContent: 'space-around', 
+    justifyContent: 'space-around',
     marginBottom: 20,
   },
   boton: {
-    backgroundColor: '#FF5722', 
+    backgroundColor: '#FF5722',
     padding: 15,
     borderRadius: 8,
-    width: '28%', 
+    width: '28%',
     alignItems: 'center',
   },
   textoBoton: {
@@ -52,6 +52,6 @@ export const estilos = StyleSheet.create({
   textoResultado: {
     fontSize: 18,
     marginBottom: 10,
-    color: '#333', 
+    color: '#333',
   },
 });
